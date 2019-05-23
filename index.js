@@ -9,7 +9,12 @@ module.exports = function Resize(app, conf) {
     return log('resize config not found!');
   }
 
-  const { target = 'local', cacheDev = true, quality = 100 } = getConfig;
+  const {
+    target = 'local',
+    cacheDev = true,
+    quality = 100,
+    cacheFileDir,
+  } = getConfig;
 
   const targetConf = getConfig[target] || app.config(target);
   if (!targetConf) {
@@ -19,6 +24,10 @@ module.exports = function Resize(app, conf) {
   setEnv('DEFAULT_SOURCE', target);
   setEnv('CACHE_DEV_REQUESTS', cacheDev);
   setEnv('IMAGE_QUALITY', quality);
+
+  if (cacheFileDir) {
+    setEnv('CACHE_FILE_DIRECTORY', cacheFileDir);
+  }
 
   if (target === 'local') {
     setEnv('LOCAL_FILE_PATH', targetConf.path || `${process.cwd()}/public`);

@@ -10,7 +10,7 @@
   "dependencies": {
     "debug": "^2.6.3",
     "express": "^4.16.2",
-    "image-resizer": "github:tripviss/image-resizer",
+    "image-resizer": "github:selcukfatihsevinc/image-resizer-1",
     "parse-domain": "^1.1.0",
     "underscore": "^1.8.3"
   },

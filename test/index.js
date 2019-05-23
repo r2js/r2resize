@@ -7,7 +7,10 @@ const expect = chai.expect;
 process.chdir(__dirname);
 
 const app = r2base();
-app.start().serve(r2resize, { local: {}, host: { '127.0.0.1': ['h40'] } }).into(app);
+app
+  .start()
+  .serve(r2resize, { local: {}, host: { '127.0.0.1': ['h40'] } })
+  .into(app);
 
 describe('r2resize', () => {
   describe('resize local', () => {
